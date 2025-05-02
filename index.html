@@ -10,14 +10,28 @@
     <main>
       <h1>Card Memmory</h1>
 
-      <ul class="card-list">
-        <!-- <li class="card">
-          <div class="card-inner">
-            <div class="card-front"></div>
-            <div class="card-back">💡</div>
-          </div>
-        </li> -->
-      </ul>
+      <section class="win-screen">
+        <div>
+          <h1>
+            You <br />
+            <em>Won</em> <br />
+            the Game
+          </h1>
+          <button onclick="window.location.reload()">Play Again</button>
+        </div>
+      </section>
+
+      <div class="screen">
+        <section class="part-1">
+          <h2>Total Moves : <span class="total-moves">0</span></h2>
+        </section>
+        <section class="part-2">
+          <ul class="card-list"></ul>
+        </section>
+        <section class="part-3">
+          <h2 class="timer">00 : 00</h2>
+        </section>
+      </div>
     </main>
     <script src="script.js"></script>
   </body>

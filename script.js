@@ -9,15 +9,18 @@ const cards = [
   { id: 7, icon: "🎯", matched: false },
   { id: 8, icon: "🚀", matched: false },
   { id: 9, icon: "🚀", matched: false },
-  { id: 10, icon: "🎉", matched: false },
-  { id: 11, icon: "🎉", matched: false },
-  { id: 12, icon: "🧠", matched: false },
-  { id: 13, icon: "🧠", matched: false },
-  { id: 14, icon: "⚡", matched: false },
-  { id: 15, icon: "⚡", matched: false },
-  { id: 16, icon: "🧩", matched: false },
-  { id: 17, icon: "🧩", matched: false },
+  // { id: 10, icon: "🎉", matched: false },
+  // { id: 11, icon: "🎉", matched: false },
+  // { id: 12, icon: "🧠", matched: false },
+  // { id: 13, icon: "🧠", matched: false },
+  // { id: 14, icon: "⚡", matched: false },
+  // { id: 15, icon: "⚡", matched: false },
+  // { id: 16, icon: "🧩", matched: false },
+  // { id: 17, icon: "🧩", matched: false },
 ];
+
+let totalMoves = 0;
+let queue = [];
 
 function renderCards(cards) {
   const cardList = document.querySelector(".card-list");
@@ -34,32 +37,50 @@ function renderCards(cards) {
   cardList.innerHTML = sum;
 }
 
-let stack = [];
-
 function handleCardClick(id) {
-  flipCard(id);
   const card = cards.find((card) => card.id === id);
-  stack.push(card);
 
-  if (stack.length > 2) {
-    if (stack[0].icon === stack[1].icon) {
-      stack[0].matched = true;
-      stack[1].matched = true;
+  // Prevent clicking already matched or already flipped cards
+  if (card.matched || queue.includes(card)) return;
+
+  flipCard(id);
+  queue.push(card);
+
+  if (queue.length === 2) {
+    totalMoves++;
+    document.querySelector(".total-moves").textContent = totalMoves;
+
+    if (queue[0].icon === queue[1].icon) {
+      queue[0].matched = true;
+      queue[1].matched = true;
+      queue = [];
+
+      // Delay evaluate slightly to allow flip animation to finish
+      setTimeout(() => evaluate(), 300);
+    } else {
+      setTimeout(() => {
+        flipCard(queue[0].id);
+        flipCard(queue[1].id);
+        queue = [];
+      }, 500);
     }
-    setTimeout(() => {
-      flipCard(stack[0].id);
-      flipCard(stack[1].id);
-      stack.splice(0, 2);
-    }, 200);
   }
-
-  console.log(stack);
 }
+
 function flipCard(id) {
   const cardObj = cards.find((card) => card.id === id);
-    if (cardObj.matched) return;
+  if (cardObj.matched) return;
+  totalMoves++;
+  document.querySelector(".total-moves").textContent = totalMoves;
   const card = document.querySelector(`#card-${id}`);
   card.classList.toggle("flipped");
+}
+
+function evaluate() {
+  const matchedCards = cards.filter((card) => card.matched);
+  if (matchedCards.length === cards.length) {
+    document.querySelector(".win-screen").style.zIndex = "1";
+  }
 }
 
 renderCards(cards);
