@@ -1,13 +1,24 @@
+@font-face {
+  font-family: "Gilroy";
+  src: url(./67494711d21558f07d259e65_Gilroy-Regular.ttf);
+}
+@font-face {
+  font-family: "Dharam";
+  src: url(./DharmaGothicE-Bold.ttf);
+}
+
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
     Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+  font-family: Gilroy;
 }
 
 html,
 body {
+  width: 100%;
   height: 100%;
   background: linear-gradient(135deg, #667eea, #764ba2);
   display: flex;
@@ -16,64 +27,127 @@ body {
 }
 
 main {
+  width: 100%;
+  height: fit-content;
   text-align: center;
   color: #fff;
 
   h1 {
-    font-size: 3rem;
+    font-size: 6rem;
     margin-bottom: 2rem;
     letter-spacing: 1px;
   }
-}
-
-.card-list {
-  display: grid;
-  grid-template-columns: repeat(6, 100px);
-  grid-gap: 1rem;
-  justify-content: center;
-  list-style: none;
-  padding: 0;
-}
-
-.card {
-  cursor: pointer;
-  perspective: 1000px;
-
-  .card-inner {
-    position: relative;
-    width: 100px;
-    height: 100px;
-    transform-style: preserve-3d;
-    transition: transform 0.6s;
-  }
-
-  &.flipped .card-inner {
-    transform: rotateY(180deg);
-  }
-
-  .card-front,
-  .card-back {
-    position: absolute;
+  .screen {
     width: 100%;
     height: 100%;
-    background: #fff;
-    border-radius: 10px;
+    // background-color: red;
+
+    .part-1,
+    .part-3 {
+      width: 100%;
+      height: 100%;
+      // background-color: black;
+      h2 {
+        font-family: Dharam;
+        font-size: 4rem;
+      }
+    }
+    .part-2 {
+      .card-list {
+        display: grid;
+        grid-template-columns: repeat(6, 100px);
+        grid-gap: 1rem;
+        justify-content: center;
+        list-style: none;
+        padding: 0;
+
+        .card {
+          cursor: pointer;
+          perspective: 1000px;
+
+          .card-inner {
+            position: relative;
+            width: 100px;
+            height: 100px;
+            transform-style: preserve-3d;
+            transition: transform 0.6s;
+          }
+
+          &.flipped .card-inner {
+            transform: rotateY(180deg);
+          }
+
+          .card-front,
+          .card-back {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: #fff;
+            border-radius: 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            backface-visibility: hidden;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+          }
+
+          .card-front {
+            background: #e2e8f0;
+          }
+
+          .card-back {
+            background: #38b2ac;
+            color: #fff;
+            transform: rotateY(180deg);
+          }
+        }
+      }
+    }
+
+    .part-3{
+      h2{
+        font-size: 12rem;
+      }
+    }
+  }
+
+  .win-screen {
+    z-index: -1;
+    position: fixed;
+    background-color: white;
+    color: black;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
     display: flex;
-    align-items: center;
     justify-content: center;
-    font-size: 2rem;
-    backface-visibility: hidden;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  }
+    align-items: center;
 
-  .card-front {
-    background: #e2e8f0;
-  }
+    div {
+      h1 {
+        font-size: 6rem;
+        text-transform: uppercase;
+      }
+      button {
+        padding: 1rem 2rem;
+        border-radius: 5px;
+        border: none;
+        background: #38b2ac;
+        color: #fff;
+        cursor: pointer;
+        font-weight: bolder;
+        font-size: x-large;
 
-  .card-back {
-    background: #38b2ac;
-    color: #fff;
-    transform: rotateY(180deg);
+        &:hover {
+          background: #287e79;
+        }
+
+        &:active {
+          scale: 0.95;
+        }
+      }
+    }
   }
 }
-
