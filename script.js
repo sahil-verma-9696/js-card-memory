@@ -15,6 +15,28 @@ class Card {
   }
 }
 
+// Theme Toggle
+const toggleBtn = document.getElementById("theme-toggle");
+const savedTheme = localStorage.getItem("theme") || "light";
+
+// Set initial theme
+document.body.classList.add(`${savedTheme}-mode`);
+toggleBtn.innerText = savedTheme === "dark" ? "Light Mode" : "Dark Mode";
+
+// Toggle Theme
+toggleBtn.addEventListener("click", () => {
+  const isDark = document.body.classList.contains("dark-mode");
+
+  document.body.classList.toggle("dark-mode", !isDark);
+  document.body.classList.toggle("light-mode", isDark);
+
+  const newTheme = isDark ? "light" : "dark";
+  localStorage.setItem("theme", newTheme);
+
+  // Update button text
+  toggleBtn.innerText = newTheme === "dark" ? "Light Mode" : "Dark Mode";
+});
+
 // Create cards with function so it's easier to produce more
 function createCards(number) {
   const icons = ["💡", "🔥", "🌟", "🎯", "🚀", "🎉", "🧠", "⚡", "🧩"];
