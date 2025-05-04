@@ -160,9 +160,9 @@ main {
     color: #fff;
   
     h1 {
-      font-size: 5rem;
-      margin-bottom: 2rem;
-      letter-spacing: 1px;
+      font-size: 3rem;
+      margin-top: 6rem;
+      letter-spacing: .5px;
     }
     .screen {
       width: 100%;
@@ -176,27 +176,28 @@ main {
         // background-color: black;
         h2 {
           font-family: Dharam;
-          font-size: 4rem;
+          font-size: 2rem;
         }
       }
       .part-2 {
         .card-list {
           display: grid;
           grid-template-columns: repeat(3, 100px);
-          grid-gap: 1rem;
+          grid-gap: .5rem;
           justify-content: center;
           list-style: none;
-          padding: 0;
+          padding: 0 1rem;
   
           .card {
             cursor: pointer;
             perspective: 1000px;
+            
   
             .card-inner {
               position: relative;
-              width: 100px;
-              height: 100px;
-              transform-style: preserve-3d;
+              width: 80px;
+              height: 80px;
+              // transform-style: preserve-3d;
               transition: transform 0.6s;
             }
   
@@ -234,7 +235,7 @@ main {
   
       .part-3{
         h2{
-          font-size: 12rem;
+          font-size: 4rem;
         }
       }
     }
@@ -251,10 +252,11 @@ main {
       display: flex;
       justify-content: center;
       align-items: center;
+      padding: 1rem;
   
       div {
         h1 {
-          font-size: 6rem;
+          font-size: 2.5rem;
           text-transform: uppercase;
         }
         button {
@@ -265,7 +267,8 @@ main {
           color: #fff;
           cursor: pointer;
           font-weight: bolder;
-          font-size: x-large;
+          font-size: 1rem;
+          padding: .75rem 1.5rem ;
   
           &:hover {
             background: #287e79;
