@@ -1,4 +1,13 @@
-// Since all cards are the same it's better to use a map
+// Sound Effects
+const flipSound = new Audio("flip.mp3");
+const matchSound = new Audio("match.mp3");
+const winSound = new Audio("win.mp3");
+
+flipSound.load();
+matchSound.load();
+winSound.load();
+
+// Card class
 class Card {
   constructor(id, icon) {
     this.id = id;
@@ -15,7 +24,7 @@ class Card {
   }
 }
 
-// Create cards with function so it's easier to produce more
+// Create cards
 function createCards(number) {
   const icons = ["💡", "🔥", "🌟", "🎯", "🚀", "🎉", "🧠", "⚡", "🧩"];
   const cards = [];
@@ -27,7 +36,6 @@ function createCards(number) {
   }
 
   const gameIcons = icons.slice(0, number);
-
   gameIcons.forEach((icon) => {
     cards.push(new Card(id++, icon));
     cards.push(new Card(id++, icon));
@@ -44,7 +52,7 @@ function shuffleCards(cards) {
   return cards;
 }
 
-// Render the cards on the game board
+// Render cards
 function renderCards(cards) {
   const cardList = document.querySelector(".card-list");
   cardList.innerHTML = "";
@@ -66,23 +74,25 @@ function renderCards(cards) {
   });
 }
 
-// Flip the card visually
+// Flip card
 function flipCard(id) {
   const card = document.querySelector(`#card-${id}`);
   card.classList.toggle("flipped");
+
+  // Play flip sound
+  flipSound.currentTime = 0;
+  flipSound.play();
 }
 
-// Handle card click logic
+// Handle click logic
 function handleCardClick(id) {
   const card = cards.find((card) => card.id === id);
 
-  // Start the timer on first card click
   if (!gameStarted) {
     gameStarted = true;
     startTimer();
   }
 
-  // Ignore clicks on matched cards or already flipped cards
   if (isProcessing || card.matched || queue.includes(card)) return;
 
   flipCard(id);
@@ -94,21 +104,27 @@ function handleCardClick(id) {
     document.querySelector(".total-moves").textContent = totalMoves;
 
     if (queue[0].icon === queue[1].icon) {
-      // Mark cards as matched
       queue[0].match();
       queue[1].match();
+
+      // Play match sound
+      matchSound.currentTime = 0;
+      matchSound.play();
+
       queue = [];
 
-      // Check for victory
       setTimeout(() => {
         if (cards.every((card) => card.matched)) {
-          clearInterval(timerInterval); // Stop the timer
+          clearInterval(timerInterval);
           document.querySelector(".win-screen").style.zIndex = "1";
+
+          // Play win sound
+          winSound.currentTime = 0;
+          winSound.play();
         }
         isProcessing = false;
       }, 300);
     } else {
-      // Flip cards back if they don't match
       setTimeout(() => {
         flipCard(queue[0].id);
         flipCard(queue[1].id);
@@ -132,10 +148,9 @@ function startTimer() {
   }, 1000);
 }
 
-// Initialize the game
+// Initialize game
 function initializeGame() {
-  cards = createCards(6); // 6 pairs of cards
-  // Could be an input so the player can choose
+  cards = createCards(6);
   renderCards(cards);
 }
 
