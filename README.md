@@ -66,7 +66,12 @@ Thanks goes to these amazing people:
         <sub><b>Nathan Champes</b></sub>
       </a>
     </td>
-    <!-- Add more contributors here -->
+   <td align="center">
+      <a href="https://github.com/sonal-verma-4397">
+        <img src="https://avatars.githubusercontent.com/u/18420645?v=4" width="80px;" alt="Nathan Champes"/><br />
+        <sub><b>Sonal Verma</b></sub>
+      </a>
+    </td>
   </tr>
 </table>
 
