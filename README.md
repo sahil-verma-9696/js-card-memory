@@ -56,7 +56,7 @@ Thanks goes to these amazing people:
   <tr>
     <td align="center">
       <a href="https://github.com/sahil-verma-9696">
-        <img src="https://avatars.githubusercontent.com/u/104737084?v=4" width="80px;" alt="Sahil Verma"/><br />
+        <img src="https://avatars.githubusercontent.com/u/129593012?v=4" width="80px;" alt="Sahil Verma"/><br />
         <sub><b>Sahil Verma</b></sub>
       </a>
     </td>
