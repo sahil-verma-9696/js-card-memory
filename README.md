@@ -68,7 +68,7 @@ Thanks goes to these amazing people:
     </td>
     <td align="center">
       <a href="https://github.com/NathanChampes">
-        <img src="https://avatars.githubusercontent.com/u/18420645?v=4" width="80px;" alt="Nathan Champes"/><br />
+        <img src="https://avatars.githubusercontent.com/u/119850289?v=4" width="80px;" alt="Nathan Champes"/><br />
         <sub><b>Nathan Champes</b></sub>
       </a>
     </td>
