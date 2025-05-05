@@ -56,22 +56,35 @@ Thanks goes to these amazing people:
   <tr>
     <td align="center">
       <a href="https://github.com/sahil-verma-9696">
-        <img src="https://avatars.githubusercontent.com/u/129593012?v=4" width="80px;" alt="Sahil Verma"/><br />
+        <img src="https://avatars.githubusercontent.com/u/104737084?v=4" width="80px;" alt="Sahil Verma"/><br />
         <sub><b>Sahil Verma</b></sub>
       </a>
     </td>
-    <td align="center">
-      <a href="https://github.com/NathanChampes">
-        <img src="https://avatars.githubusercontent.com/u/119850289?v=4" width="80px;" alt="Nathan Champes"/><br />
-        <sub><b>Nathan Champes</b></sub>
-      </a>
-    </td>
-   <td align="center">
+       <td align="center">
       <a href="https://github.com/sonal-verma-4397">
         <img src="https://avatars.githubusercontent.com/u/180454261?v=4" width="80px;" alt="Nathan Champes"/><br />
         <sub><b>Sonal Verma</b></sub>
       </a>
     </td>
+    <td align="center">
+      <a href="https://github.com/NathanChampes">
+        <img src="https://avatars.githubusercontent.com/u/18420645?v=4" width="80px;" alt="Nathan Champes"/><br />
+        <sub><b>Nathan Champes</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/ianujvarshney">
+        <img src="https://avatars.githubusercontent.com/u/57233251?v=4" width="80px;" alt="Anuj Varshney"/><br />
+        <sub><b>Anuj Varshney</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/thesyntaxdude">
+        <img src="https://avatars.githubusercontent.com/u/184657672?v=4" width="80px;" alt="thesyntaxdude"/><br />
+        <sub><b>thesyntaxdude</b></sub>
+      </a>
+    </td>
+ 
   </tr>
 </table>
 
