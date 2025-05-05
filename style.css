@@ -149,4 +149,114 @@ main .win-screen div button:hover {
 }
 main .win-screen div button:active {
   scale: 0.95;
+}
+
+@media (max-width: 726px) {
+  main {
+    width: 100%;
+    height: -moz-fit-content;
+    height: fit-content;
+    text-align: center;
+    color: #fff;
+  }
+  main h1 {
+    font-size: 3rem;
+    margin-top: 6rem;
+    letter-spacing: 0.5px;
+  }
+  main .screen {
+    width: 100%;
+    height: 100%;
+  }
+  main .screen .part-1,
+  main .screen .part-3 {
+    width: 100%;
+    height: 100%;
+  }
+  main .screen .part-1 h2,
+  main .screen .part-3 h2 {
+    font-family: Dharam;
+    font-size: 2rem;
+  }
+  main .screen .part-2 .card-list {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-gap: 0.5rem;
+    justify-content: center;
+    list-style: none;
+    padding: 0 1rem;
+  }
+  main .screen .part-2 .card-list .card {
+    cursor: pointer;
+    perspective: 1000px;
+  }
+  main .screen .part-2 .card-list .card .card-inner {
+    position: relative;
+    width: 80px;
+    height: 80px;
+    transition: transform 0.6s;
+  }
+  main .screen .part-2 .card-list .card.flipped .card-inner {
+    transform: rotateY(180deg);
+  }
+  main .screen .part-2 .card-list .card .card-front,
+  main .screen .part-2 .card-list .card .card-back {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 2rem;
+    backface-visibility: hidden;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  }
+  main .screen .part-2 .card-list .card .card-front {
+    background: #e2e8f0;
+  }
+  main .screen .part-2 .card-list .card .card-back {
+    background: #38b2ac;
+    color: #fff;
+    transform: rotateY(180deg);
+  }
+  main .screen .part-3 h2 {
+    font-size: 4rem;
+  }
+  main .win-screen {
+    z-index: -1;
+    position: fixed;
+    background-color: white;
+    color: black;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+  }
+  main .win-screen div h1 {
+    font-size: 2.5rem;
+    text-transform: uppercase;
+  }
+  main .win-screen div button {
+    padding: 1rem 2rem;
+    border-radius: 5px;
+    border: none;
+    background: #38b2ac;
+    color: #fff;
+    cursor: pointer;
+    font-weight: bolder;
+    font-size: 1rem;
+    padding: 0.75rem 1.5rem;
+  }
+  main .win-screen div button:hover {
+    background: #287e79;
+  }
+  main .win-screen div button:active {
+    scale: 0.95;
+  }
 }/*# sourceMappingURL=style.css.map */
