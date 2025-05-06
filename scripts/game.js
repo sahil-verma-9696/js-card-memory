@@ -1,72 +1,14 @@
-// Since all cards are the same it's better to use a map
-class Card {
-  constructor(id, icon) {
-    this.id = id;
-    this.icon = icon;
-    this.matched = false;
-  }
+import { createCards } from "./card.js";
 
-  match() {
-    this.matched = true;
-  }
+// Game starting variables
+let cards = [];
+let queue = [];
+let isProcessing = false;
+let totalMoves = 0;
+let timerInterval;
+let gameStarted = false;
 
-  reset() {
-    this.matched = false;
-  }
-}
-
-// Theme Toggle
-const toggleBtn = document.getElementById("theme-toggle");
-const savedTheme = localStorage.getItem("theme") || "light";
-
-// Set initial theme
-document.body.classList.add(`${savedTheme}-mode`);
-toggleBtn.innerText = savedTheme === "dark" ? "Light Mode" : "Dark Mode";
-
-// Toggle Theme
-toggleBtn.addEventListener("click", () => {
-  const isDark = document.body.classList.contains("dark-mode");
-
-  document.body.classList.toggle("dark-mode", !isDark);
-  document.body.classList.toggle("light-mode", isDark);
-
-  const newTheme = isDark ? "light" : "dark";
-  localStorage.setItem("theme", newTheme);
-
-  // Update button text
-  toggleBtn.innerText = newTheme === "dark" ? "Light Mode" : "Dark Mode";
-});
-
-// Create cards with function so it's easier to produce more
-function createCards(number) {
-  const icons = ["💡", "🔥", "🌟", "🎯", "🚀", "🎉", "🧠", "⚡", "🧩"];
-  const cards = [];
-  let id = 0;
-
-  if (number > icons.length) {
-    console.error("Not enough icons available. Maximum pairs: " + icons.length);
-    return [];
-  }
-
-  const gameIcons = icons.slice(0, number);
-
-  gameIcons.forEach((icon) => {
-    cards.push(new Card(id++, icon));
-    cards.push(new Card(id++, icon));
-  });
-
-  return shuffleCards(cards);
-}
-
-function shuffleCards(cards) {
-  for (let i = cards.length - 1; i > 0; i--) {
-    const j = Math.floor(Math.random() * (i + 1));
-    [cards[i], cards[j]] = [cards[j], cards[i]];
-  }
-  return cards;
-}
-
-// Render the cards on the game board
+// Game logic
 function renderCards(cards) {
   const cardList = document.querySelector(".card-list");
   cardList.innerHTML = "";
@@ -88,13 +30,11 @@ function renderCards(cards) {
   });
 }
 
-// Flip the card visually
 function flipCard(id) {
   const card = document.querySelector(`#card-${id}`);
   card.classList.toggle("flipped");
 }
 
-// Handle card click logic
 function handleCardClick(id) {
   const card = cards.find((card) => card.id === id);
 
@@ -141,7 +81,6 @@ function handleCardClick(id) {
   }
 }
 
-// Timer logic
 function startTimer() {
   let seconds = 0;
   const timerElement = document.querySelector(".timer");
@@ -154,18 +93,23 @@ function startTimer() {
   }, 1000);
 }
 
-// Initialize the game
-function initializeGame() {
-  cards = createCards(6); // 6 pairs of cards
-  // Could be an input so the player can choose
+function initializeGame(pairCount = 6) {
+  // Reset game state
+  cards = [];
+  queue = [];
+  isProcessing = false;
+  totalMoves = 0;
+  gameStarted = false;
+  if (timerInterval) clearInterval(timerInterval);
+
+  // Reset UI
+  document.querySelector(".timer").textContent = "00 : 00";
+  document.querySelector(".total-moves").textContent = "0";
+  document.querySelector(".win-screen").style.zIndex = "-1";
+
+  // Create and render cards
+  cards = createCards(pairCount);
   renderCards(cards);
 }
 
-let cards = [];
-let queue = [];
-let isProcessing = false;
-let totalMoves = 0;
-let timerInterval;
-let gameStarted = false;
-
-initializeGame();
+export { initializeGame };
