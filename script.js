@@ -1,11 +1,4 @@
-// Sound Effects
-const flipSound = new Audio("flip.mp3");
-const matchSound = new Audio("match.mp3");
-const winSound = new Audio("win.mp3");
-
-flipSound.load();
-matchSound.load();
-winSound.load();
+import { flipSound, matchSound, winSound } from "./sound.js";
 
 // Card class
 class Card {
