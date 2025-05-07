@@ -1,4 +1,5 @@
 import { createCards } from "./card.js";
+import { flipSound, matchSound, winSound } from "./sound.js";
 
 // Game starting variables
 let cards = [];
@@ -33,6 +34,10 @@ function renderCards(cards) {
 function flipCard(id) {
   const card = document.querySelector(`#card-${id}`);
   card.classList.toggle("flipped");
+
+  // Play flip sound
+  flipSound.currentTime = 0;
+  flipSound.play();
 }
 
 function handleCardClick(id) {
@@ -59,6 +64,11 @@ function handleCardClick(id) {
       // Mark cards as matched
       queue[0].match();
       queue[1].match();
+
+      // Play match sound
+      matchSound.currentTime = 0;
+      matchSound.play();
+
       queue = [];
 
       // Check for victory
@@ -66,6 +76,10 @@ function handleCardClick(id) {
         if (cards.every((card) => card.matched)) {
           clearInterval(timerInterval); // Stop the timer
           document.querySelector(".win-screen").style.zIndex = "1";
+
+          // Play win sound
+          winSound.currentTime = 0;
+          winSound.play();
         }
         isProcessing = false;
       }, 300);
