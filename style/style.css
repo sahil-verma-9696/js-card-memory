@@ -2,12 +2,10 @@
   font-family: "Gilroy";
   src: url(../assets/fonts/67494711d21558f07d259e65_Gilroy-Regular.ttf);
 }
-
 @font-face {
   font-family: "Dharam";
-  src: url(../assets/fonts/DharmaGothicE-Bold.ttf);
+  src: url(../DharmaGothicE-Bold.ttf);
 }
-
 * {
   margin: 0;
   padding: 0;
@@ -23,13 +21,11 @@ body {
   justify-content: center;
   align-items: center;
 }
-
 html.light-mode,
 body.light-mode {
   background: linear-gradient(135deg, #667eea, #764ba2);
   color: black;
 }
-
 html.dark-mode,
 body.dark-mode {
   background: #121212;
@@ -55,30 +51,25 @@ main {
   text-align: center;
   color: #fff;
 }
-
 main h1 {
   font-size: 6rem;
   margin-bottom: 2rem;
   letter-spacing: 1px;
 }
-
 main .screen {
   width: 100%;
   height: 100%;
 }
-
 main .screen .part-1,
 main .screen .part-3 {
   width: 100%;
   height: 100%;
 }
-
 main .screen .part-1 h2,
 main .screen .part-3 h2 {
   font-family: Dharam;
   font-size: 4rem;
 }
-
 main .screen .part-2 .card-list {
   display: grid;
   grid-template-columns: repeat(6, 100px);
@@ -87,12 +78,10 @@ main .screen .part-2 .card-list {
   list-style: none;
   padding: 0;
 }
-
 main .screen .part-2 .card-list .card {
   cursor: pointer;
   perspective: 1000px;
 }
-
 main .screen .part-2 .card-list .card .card-inner {
   position: relative;
   width: 100px;
@@ -100,11 +89,9 @@ main .screen .part-2 .card-list .card .card-inner {
   transform-style: preserve-3d;
   transition: transform 0.6s;
 }
-
 main .screen .part-2 .card-list .card.flipped .card-inner {
   transform: rotateY(180deg);
 }
-
 main .screen .part-2 .card-list .card .card-front,
 main .screen .part-2 .card-list .card .card-back {
   position: absolute;
@@ -119,21 +106,17 @@ main .screen .part-2 .card-list .card .card-back {
   backface-visibility: hidden;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
 main .screen .part-2 .card-list .card .card-front {
   background: #e2e8f0;
 }
-
 main .screen .part-2 .card-list .card .card-back {
   background: #38b2ac;
   color: #fff;
   transform: rotateY(180deg);
 }
-
 main .screen .part-3 h2 {
   font-size: 12rem;
 }
-
 main .win-screen {
   z-index: -1;
   position: fixed;
@@ -147,29 +130,46 @@ main .win-screen {
   justify-content: center;
   align-items: center;
 }
-
-main .win-screen div h1 {
+main .win-screen #winner {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  visibility: hidden;
+  opacity: 0;
+}
+main .win-screen #winner h1 {
   font-size: 6rem;
   text-transform: uppercase;
 }
-
-main .win-screen div button {
+main .win-screen #winner button {
   padding: 1rem 2rem;
   border-radius: 5px;
   border: none;
   background: #38b2ac;
   color: #fff;
   cursor: pointer;
-  font-weight: bolder;
-  font-size: x-large;
 }
-
-main .win-screen div button:hover {
+main .win-screen #winner button:hover {
   background: #287e79;
 }
-
-main .win-screen div button:active {
+main .win-screen #winner button:active {
   scale: 0.95;
+}
+main .win-screen #confetti-canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 2000;
 }
 
 @media (max-width: 726px) {
@@ -180,30 +180,27 @@ main .win-screen div button:active {
     text-align: center;
     color: #fff;
   }
-
   main h1 {
     font-size: 3rem;
     margin-top: 6rem;
     letter-spacing: 0.5px;
   }
-
   main .screen {
     width: 100%;
     height: 100%;
+    /* background-color: red; */
   }
-
   main .screen .part-1,
   main .screen .part-3 {
     width: 100%;
     height: 100%;
+    /* background-color: black; */
   }
-
   main .screen .part-1 h2,
   main .screen .part-3 h2 {
     font-family: Dharam;
     font-size: 2rem;
   }
-
   main .screen .part-2 .card-list {
     display: grid;
     grid-template-columns: repeat(3, 100px);
@@ -212,23 +209,20 @@ main .win-screen div button:active {
     list-style: none;
     padding: 0 1rem;
   }
-
   main .screen .part-2 .card-list .card {
     cursor: pointer;
     perspective: 1000px;
   }
-
   main .screen .part-2 .card-list .card .card-inner {
     position: relative;
     width: 80px;
     height: 80px;
+    /* transform-style: preserve-3d; */
     transition: transform 0.6s;
   }
-
   main .screen .part-2 .card-list .card.flipped .card-inner {
     transform: rotateY(180deg);
   }
-
   main .screen .part-2 .card-list .card .card-front,
   main .screen .part-2 .card-list .card .card-back {
     position: absolute;
@@ -243,21 +237,17 @@ main .win-screen div button:active {
     backface-visibility: hidden;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   }
-
   main .screen .part-2 .card-list .card .card-front {
     background: #e2e8f0;
   }
-
   main .screen .part-2 .card-list .card .card-back {
     background: #38b2ac;
     color: #fff;
     transform: rotateY(180deg);
   }
-
   main .screen .part-3 h2 {
     font-size: 4rem;
   }
-
   main .win-screen {
     z-index: -1;
     position: fixed;
@@ -272,12 +262,10 @@ main .win-screen div button:active {
     align-items: center;
     padding: 1rem;
   }
-
   main .win-screen div h1 {
     font-size: 2.5rem;
     text-transform: uppercase;
   }
-
   main .win-screen div button {
     padding: 1rem 2rem;
     border-radius: 5px;
@@ -289,14 +277,10 @@ main .win-screen div button:active {
     font-size: 1rem;
     padding: 0.75rem 1.5rem;
   }
-
   main .win-screen div button:hover {
     background: #287e79;
   }
-
   main .win-screen div button:active {
     scale: 0.95;
   }
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */

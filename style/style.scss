@@ -1,11 +1,11 @@
 @font-face {
   font-family: "Gilroy";
-  src: url(./67494711d21558f07d259e65_Gilroy-Regular.ttf);
+  src: url(../assets/fonts/67494711d21558f07d259e65_Gilroy-Regular.ttf);
 }
 
 @font-face {
   font-family: "Dharam";
-  src: url(./DharmaGothicE-Bold.ttf);
+  src: url(../assets/fonts/DharmaGothicE-Bold.ttf);
 }
 
 * {
@@ -159,7 +159,20 @@ main {
     justify-content: center;
     align-items: center;
 
-    div {
+    #winner {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      z-index: 1000;
+      visibility: hidden;
+      opacity: 0;
+
       h1 {
         font-size: 6rem;
         text-transform: uppercase;
@@ -172,8 +185,6 @@ main {
         background: #38b2ac;
         color: #fff;
         cursor: pointer;
-        font-weight: bolder;
-        font-size: x-large;
 
         &:hover {
           background: #287e79;
@@ -184,36 +195,49 @@ main {
         }
       }
     }
+    #confetti-canvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      pointer-events: none;
+      z-index: 2000;
+    }
   }
-  
+
 }
-@media(max-width:726px){
+
+@media(max-width:726px) {
   main {
     width: 100%;
     height: fit-content;
     text-align: center;
     color: #fff;
-  
+
     h1 {
       font-size: 3rem;
       margin-top: 6rem;
       letter-spacing: .5px;
     }
+
     .screen {
       width: 100%;
       height: 100%;
-      // background-color: red;
-  
+      /* background-color: red; */
+
       .part-1,
       .part-3 {
         width: 100%;
         height: 100%;
-        // background-color: black;
+
+        /* background-color: black; */
         h2 {
           font-family: Dharam;
           font-size: 2rem;
         }
       }
+
       .part-2 {
         .card-list {
           display: grid;
@@ -222,24 +246,24 @@ main {
           justify-content: center;
           list-style: none;
           padding: 0 1rem;
-  
+
           .card {
             cursor: pointer;
             perspective: 1000px;
-            
-  
+
+
             .card-inner {
               position: relative;
               width: 80px;
               height: 80px;
-              // transform-style: preserve-3d;
+              /* transform-style: preserve-3d; */
               transition: transform 0.6s;
             }
-  
+
             &.flipped .card-inner {
               transform: rotateY(180deg);
             }
-  
+
             .card-front,
             .card-back {
               position: absolute;
@@ -254,11 +278,11 @@ main {
               backface-visibility: hidden;
               box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
             }
-  
+
             .card-front {
               background: #e2e8f0;
             }
-  
+
             .card-back {
               background: #38b2ac;
               color: #fff;
@@ -267,14 +291,14 @@ main {
           }
         }
       }
-  
-      .part-3{
-        h2{
+
+      .part-3 {
+        h2 {
           font-size: 4rem;
         }
       }
     }
-  
+
     .win-screen {
       z-index: -1;
       position: fixed;
@@ -288,12 +312,13 @@ main {
       justify-content: center;
       align-items: center;
       padding: 1rem;
-  
+
       div {
         h1 {
           font-size: 2.5rem;
           text-transform: uppercase;
         }
+
         button {
           padding: 1rem 2rem;
           border-radius: 5px;
@@ -303,18 +328,18 @@ main {
           cursor: pointer;
           font-weight: bolder;
           font-size: 1rem;
-          padding: .75rem 1.5rem ;
-  
+          padding: .75rem 1.5rem;
+
           &:hover {
             background: #287e79;
           }
-  
+
           &:active {
             scale: 0.95;
           }
         }
       }
     }
-    
+
   }
 }
