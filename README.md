@@ -91,12 +91,17 @@ Thanks goes to these amazing people:
       </a>
     </td>
     <td align="center">
+      <a href="https://github.com/ehcgnahc">
+        <img src="https://avatars.githubusercontent.com/u/170606122?v=4" width="80px;" alt="thesyntaxdude"/><br />
+        <sub><b>ehcgnahc</b></sub>
+      </a>
+    </td>
+    <td align="center">
       <a href="https://github.com/VanshNigam">
         <img src="https://avatars.githubusercontent.com/u/151783953?v=4" width="80px;" alt="thesyntaxdude"/><br />
         <sub><b>VanshNigam</b></sub>
       </a>
     </td>
- 
   </tr>
 </table>
 
