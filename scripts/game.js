@@ -8,6 +8,7 @@ let isProcessing = false;
 let totalMoves = 0;
 let timerInterval;
 let gameStarted = false;
+let streak = 0;
 
 // Game logic
 function renderCards(cards) {
@@ -68,6 +69,8 @@ function handleCardClick(id) {
       // Play match sound
       matchSound.currentTime = 0;
       matchSound.play();
+      streak++;
+      document.querySelector(".Streak-meter").textContent = streak;
 
       queue = [];
 
@@ -91,6 +94,9 @@ function handleCardClick(id) {
         queue = [];
         isProcessing = false;
       }, 800);
+      // Reset streak
+      streak = 0;
+      document.querySelector(".Streak-meter").textContent = streak;
     }
   }
 
