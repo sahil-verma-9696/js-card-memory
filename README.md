@@ -1,6 +1,6 @@
 # 🃏 Memory Card Game
 
-A fun and interactive **Memory Card Game** built with **HTML, CSS, and JavaScript**. Flip cards, match pairs, and challenge your memory skills – all in one open-source project!
+A fun and interactive **Memory Card Game** built with **HTML, tailwindcss, and JavaScript**. Flip cards, match pairs, and challenge your memory skills – all in one open-source project!
 
 Live Demo: [js-card-memory.vercel.app](https://js-card-memory.vercel.app)
 
@@ -8,11 +8,11 @@ Live Demo: [js-card-memory.vercel.app](https://js-card-memory.vercel.app)
 
 ## 🚀 Features
 
-* 🧠 Simple game logic using vanilla JS
-* ✨ Card flip animations and effects
-* 🔹 Score tracking and restart option
-* 🖌️ Clean UI with room for improvement
-* 🌐 Fully deployed with Vercel
+- 🧠 Simple game logic using vanilla JS
+- ✨ Card flip animations and effects
+- 🔹 Score tracking and restart option
+- 🖌️ Clean UI with room for improvement
+- 🌐 Fully deployed with Vercel
 
 ---
 
@@ -26,11 +26,11 @@ We regularly open issues labeled `good first issue` for those just starting out.
 
 Some open issues:
 
-* 🎵 Add Sound Effects
-* 🌟 Add Win Animation using GSAP
-* 📱 Improve UI for small screens
-* 🌙 Add Dark Mode Toggle
-* 🧠 Add Move/Time Counter
+- 🎵 Add Sound Effects
+- 🌟 Add Win Animation using GSAP
+- 📱 Improve UI for small screens
+- 🌙 Add Dark Mode Toggle
+- 🧠 Add Move/Time Counter
 
 ---
 
@@ -82,6 +82,18 @@ Thanks goes to these amazing people:
       <a href="https://github.com/thesyntaxdude">
         <img src="https://avatars.githubusercontent.com/u/184657672?v=4" width="80px;" alt="thesyntaxdude"/><br />
         <sub><b>thesyntaxdude</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/filipdev3">
+        <img src="https://avatars.githubusercontent.com/u/189376829?v=4" width="80px;" alt="thesyntaxdude"/><br />
+        <sub><b>filipdev3</b></sub>
+      </a>
+    </td>
+    <td align="center">
+      <a href="https://github.com/VanshNigam">
+        <img src="https://avatars.githubusercontent.com/u/151783953?v=4" width="80px;" alt="thesyntaxdude"/><br />
+        <sub><b>VanshNigam</b></sub>
       </a>
     </td>
  

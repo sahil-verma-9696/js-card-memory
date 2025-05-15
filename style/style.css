@@ -185,6 +185,7 @@ main .win-screen #confetti-canvas {
 @media (max-width: 726px) {
   main {
     width: 100%;
+    height: -moz-fit-content;
     height: fit-content;
     text-align: center;
     color: #fff;
@@ -292,6 +293,4 @@ main .win-screen #confetti-canvas {
   main .win-screen div button:active {
     scale: 0.95;
   }
-}
-
-/*# sourceMappingURL=style.css.map */
+}/*# sourceMappingURL=style.css.map */
