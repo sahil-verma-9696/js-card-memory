@@ -15,7 +15,7 @@ function initializeTheme() {
   // Apply the initial theme to the document
   document.body.classList.remove("light-mode", "dark-mode");
   document.body.classList.add(`${initialTheme}-mode`);
-  toggleBtn.innerText = savedTheme === "dark" ? "Light Mode" : "Dark Mode";
+  toggleBtn.innerText = initialTheme === "dark" ? "Light Mode" : "Dark Mode";
 
   // Handle user-initiated theme toggle
   toggleBtn.addEventListener("click", () => {
