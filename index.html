@@ -1,54 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Card Memory</title>
+    <!-- <link rel="stylesheet" href="style/style.css" /> -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  </head>
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Card Memory</title>
-  <link rel="stylesheet" href="style/style.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-
-
-</head>
-
-<body>
-  <main>
-    <header>
-      <button id="theme-toggle" class="btn">Toggle Dark Mode</button>
-    </header>
-
-    <h1>Card Memory</h1>
-
-    <section class="win-screen">
+  <body class="relative">
+    <section
+      class="win-screen absolute w-screen h-screen flex justify-center items-center bg-black dark:text-white"
+    >
       <!-- Confetti Canvas and Winner Animation -->
-      <div class="winner-animation" id="winner">
-        <h1 class="winner-text">🎉 You Won! 🎉</h1>
-        <button onclick="window.location.reload()">Play Again</button>
+      <div
+        class="winner-animation p-8 rounded-lg text-center absolute z-10"
+        id="winner"
+      >
+        <h1 class="winner-text text-7xl my-4">🎉 You Won! 🎉</h1>
+        <button
+          class="mt-4 text-2xl dark:bg-[#131416] bg-white dark:text-white px-6 py-3 rounded-lg mx-auto cursor-pointer"
+          onclick="window.location.reload()"
+        >
+          Play Again
+        </button>
       </div>
-      <canvas id="confetti-canvas"></canvas>
 
+      <canvas id="confetti-canvas" class="absolute"></canvas>
     </section>
 
+    <section class="flex h-screen dark:bg-black dark:text-white z-0">
+      <aside class="h-screen w-[5vw] dark:bg-[#131416]">
+        <button id="theme-toggle" class="btn cursor-pointer"></button>
+      </aside>
 
-    <div class="screen">
-      <section class="part-1">
-        <h2>Total Moves : <span class="total-moves">0</span></h2>
-        <h2>Streak Meter : <span class="Streak-meter">0</span></h2>
+      <main class="flex-1">
+        <h1 class="text-center text-5xl my-12">Card Memory</h1>
+
+        <div class="playground absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
+          <ul
+            class="card-list grid grid-cols-[repeat(6,_100px)] gap-4 justify-center list-none p-0"
+          ></ul>
+        </div>
+      </main>
+
+      <section>
+        <section class="part-1">
+          <h2>Total Moves : <span class="total-moves">0</span></h2>
+          <h2>Streak Meter : <span class="Streak-meter">0</span></h2>
+        </section>
+        <section class="part-3">
+          <h2 class="timer">00 : 00</h2>
+        </section>
       </section>
+    </section>
 
-      <section class="part-2">
-        <ul class="card-list"></ul>
-      </section>
-
-      <section class="part-3">
-        <h2 class="timer">00 : 00</h2>
-      </section>
-    </div>
-  </main>
-
-  <script type="module" src="scripts/main.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
-</body>
-
+    <script type="module" src="scripts/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+  </body>
 </html>
