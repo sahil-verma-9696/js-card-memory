@@ -121,7 +121,7 @@ Want to see your name here? Just open a PR and get involved! 🎉
 
 ## 📣 Need Help?
 
-Feel free to open an issue or message me on [LinkedIn](www.linkedin.com/in/sahilverma200). I’d be happy to help you get started!
+Feel free to open an issue or message me on [LinkedIn](https://www.linkedin.com/in/sahilverma200/). I’d be happy to help you get started!
 
 ---
 
