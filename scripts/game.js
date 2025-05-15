@@ -17,15 +17,14 @@ function renderCards(cards) {
 
   cards.forEach((card) => {
     const cardElement = document.createElement("li");
-    cardElement.className = "card";
     cardElement.id = `card-${card.id}`;
-
+    cardElement.className = "card group cursor-pointer [perspective:1000px]";
     cardElement.innerHTML = `
-      <div class="card-inner">
-        <div class="card-front">❓</div>
-        <div class="card-back">${card.icon}</div>
-      </div>
-    `;
+  <div class="card-inner relative w-[100px] h-[100px] transition-transform duration-500 ease-in-out [transform-style:preserve-3d] group-[.flipped]:[transform:rotateY(180deg)]">
+    <div class="card-front absolute w-full h-full bg-slate-200 rounded-lg flex items-center justify-center text-2xl shadow-md [backface-visibility:hidden]">❓</div>
+    <div class="card-back absolute w-full h-full bg-teal-500 text-white rounded-lg flex items-center justify-center text-2xl shadow-md [transform:rotateY(180deg)] [backface-visibility:hidden]">${card.icon}</div>
+  </div>
+`;
 
     cardElement.addEventListener("click", () => handleCardClick(card.id));
     cardList.appendChild(cardElement);
@@ -106,11 +105,11 @@ function handleCardClick(id) {
     winSound.play();
     showWinnerAnimation(); // NEW function
   }
-  
+
   function showWinnerAnimation() {
     const winner = document.getElementById("winner");
     winner.style.visibility = "visible";
-  
+
     // Fade in winner screen
     gsap.to(winner, {
       opacity: 1,
@@ -118,7 +117,7 @@ function handleCardClick(id) {
       ease: "power2.out",
       onComplete: launchConfetti,
     });
-  
+
     // Animate text
     gsap.from(".winner-text", {
       scale: 0,
@@ -127,25 +126,30 @@ function handleCardClick(id) {
       delay: 0.2,
     });
   }
-  
+
   function launchConfetti() {
     const duration = 3 * 1000;
     const animationEnd = Date.now() + duration;
-    const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 3000 };
-  
+    const defaults = {
+      startVelocity: 30,
+      spread: 360,
+      ticks: 60,
+      zIndex: 3000,
+    };
+
     function randomInRange(min, max) {
       return Math.random() * (max - min) + min;
     }
-  
+
     const interval = setInterval(() => {
       const timeLeft = animationEnd - Date.now();
-  
+
       if (timeLeft <= 0) {
         return clearInterval(interval);
       }
-  
+
       const particleCount = 50 * (timeLeft / duration);
-  
+
       confetti({
         ...defaults,
         particleCount,
@@ -158,7 +162,6 @@ function handleCardClick(id) {
       });
     }, 250);
   }
-  
 }
 
 function startTimer() {
@@ -173,7 +176,7 @@ function startTimer() {
   }, 1000);
 }
 
-function initializeGame(pairCount = 6) {
+function initializeGame(pairCount = 2) {
   // Reset game state
   cards = [];
   queue = [];

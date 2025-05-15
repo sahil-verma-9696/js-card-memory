@@ -12,19 +12,8 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:
-    Gilroy,
-    system-ui,
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    Oxygen,
-    Ubuntu,
-    Cantarell,
-    "Open Sans",
-    "Helvetica Neue",
-    sans-serif;
+  font-family: Gilroy, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
 }
 
 html,
@@ -80,7 +69,7 @@ main {
       height: 100%;
       display: flex;
       align-items: center;
-      justify-content:center; 
+      justify-content: center;
 
       h2 {
         font-family: Dharam;
@@ -217,10 +206,9 @@ main {
       z-index: 2000;
     }
   }
-
 }
 
-@media(max-width:726px) {
+@media (max-width: 726px) {
   main {
     width: 100%;
     height: fit-content;
@@ -230,7 +218,7 @@ main {
     h1 {
       font-size: 3rem;
       margin-top: 6rem;
-      letter-spacing: .5px;
+      letter-spacing: 0.5px;
     }
 
     .screen {
@@ -254,7 +242,7 @@ main {
         .card-list {
           display: grid;
           grid-template-columns: repeat(3, 100px);
-          grid-gap: .5rem;
+          grid-gap: 0.5rem;
           justify-content: center;
           list-style: none;
           padding: 0 1rem;
@@ -262,7 +250,6 @@ main {
           .card {
             cursor: pointer;
             perspective: 1000px;
-
 
             .card-inner {
               position: relative;
@@ -340,7 +327,7 @@ main {
           cursor: pointer;
           font-weight: bolder;
           font-size: 1rem;
-          padding: .75rem 1.5rem;
+          padding: 0.75rem 1.5rem;
 
           &:hover {
             background: #287e79;
@@ -352,6 +339,5 @@ main {
         }
       }
     }
-
   }
 }
